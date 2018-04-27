@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  API_KEY: string = 'AIzaSyAi0x-9oCWtUDeKbhfJYEavHOqk2ch4RbI';
   title = 'app';
 }
