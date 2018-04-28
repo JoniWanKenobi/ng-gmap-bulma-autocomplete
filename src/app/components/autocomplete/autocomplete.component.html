@@ -1,7 +1,3 @@
-<div *ngIf = "selectedAddress">
-  <h4>Selected address: </h4>
-  <h5>{{selectedAddress.description}}</h5>
-</div>
 
 <form (ngSubmit)="submitForm()" novalidate>
   <div class="control" [class.is-loading]="loading">
@@ -15,7 +11,8 @@
 <div class="panel" *ngIf = "predictions && predictions.length > 0">    
   <a class="panel-block" 
     *ngFor = "let prediction of predictions"
-    (click) = "suggestionSelected(prediction.description)">
+    (click) = "suggestionSelected(prediction)">
+    <span class="panel-icon"><i class="fas fa-map-marker-alt"></i></span>
     {{prediction.description}}
   </a> 
 </div>

@@ -1,8 +1,20 @@
-<app-autocomplete 
-  [API_KEY] = "API_KEY"
-  [language] = "'it'"
-  [location] = "['41.7144600', '12.7048940']"
-  [radius] = "50000"
-  [strictbounds] = "true">
-</app-autocomplete>
+<div class="section">
+    <div class="columns">
+      <div class="column is-half">
+        <h4 class="title">Selected address:</h4>
+        <h4 class="subtitle" *ngIf = "selectedAddress">{{selectedAddress}}</h4>
+      </div>
+      <div class="column is-half">
+        <app-autocomplete 
+        [API_KEY] = "API_KEY"
+        [language] = "'it'"
+        [location] = "['41.7144600', '12.7048940']"
+        [radius] = "50000"
+        [strictbounds] = "true"
+        (giveBack) = "setSelectedAddress($event)">
+      </app-autocomplete>
+    </div>
+  </div>
+</div>
+
 

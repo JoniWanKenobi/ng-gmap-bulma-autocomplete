@@ -29,15 +29,19 @@ export class AutocompleteComponent implements OnInit {
   submitForm(){
     if(this.predictions && this.predictions.length > 0){
       this.selectedAddress = this.predictions[0];
+      this.addressInput = '';
+      this.predictions = null;
       this.giveBack.emit(this.selectedAddress);
     } else {
       this.setMessage(true);
     }
   }
 
-  suggestionSelected(suggestion: string){
-    this.addressInput = suggestion;
-    this.submitForm();
+  suggestionSelected(suggestion: any){
+    this.selectedAddress = suggestion;
+    this.addressInput = '';
+    this.predictions = null;
+    this.giveBack.emit(this.selectedAddress);
   }
 
   keyUpHandler(){
