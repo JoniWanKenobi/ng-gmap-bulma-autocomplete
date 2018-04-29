@@ -28,17 +28,18 @@ export class AutocompleteComponent implements OnInit {
 
   submitForm(){
     if(this.predictions && this.predictions.length > 0){
-      this.selectedAddress = this.predictions[0];
-      this.addressInput = '';
-      this.predictions = null;
-      this.giveBack.emit(this.selectedAddress);
+      this.setSelectedAddress(this.predictions[0]);
     } else {
       this.setMessage(true);
     }
   }
 
   suggestionSelected(suggestion: any){
-    this.selectedAddress = suggestion;
+    this.setSelectedAddress(suggestion);
+  }
+
+  setSelectedAddress(selectedAddress: any){
+    this.selectedAddress = selectedAddress;
     this.addressInput = '';
     this.predictions = null;
     this.giveBack.emit(this.selectedAddress);
